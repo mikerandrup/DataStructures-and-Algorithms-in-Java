@@ -32,5 +32,7 @@ public class SelectionSort implements SortingAlgo {
             data[index] = data[i];
             data[i] = tmp;
         }
+        
+        Pri.nt(data);
     }  
 }
