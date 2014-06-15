@@ -1,15 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ Copyright 2014 Mike Randrup <github@mikerandrup.com>
+ See LICENSE file for license details.
  */
 
 package algorithmsanddatastructures.sortalgorithms;
 
 /**
- *
  * @author Mike Randrup <github@mikerandrup.com>
  */
 public interface SortingAlgo {
-    void SortTheArray(int[] data);
+    void SortTheData(int[] data);
 }
