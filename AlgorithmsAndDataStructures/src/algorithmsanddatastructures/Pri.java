@@ -6,12 +6,13 @@ package algorithmsanddatastructures;
 
 /**
   * @author Mike Randrup <github@mikerandrup.com>
-  * 
-  * usage: Pri.nt("string"), 
  */
 public class Pri {
+    
+    private static String LinePrefix = "* "; // for easy pasting into github markdown
+    
     public static void nt(String message) {
-        System.out.println(message);
+        System.out.println(LinePrefix + message);
     }
     
     public static void nt(int[] intArray) {
