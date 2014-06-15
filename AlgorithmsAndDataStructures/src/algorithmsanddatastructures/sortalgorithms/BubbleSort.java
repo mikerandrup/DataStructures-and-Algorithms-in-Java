@@ -19,9 +19,9 @@ public class BubbleSort implements SortingAlgo {
     public void SortTheData(int[] data) {
         int i, j, tmp;
         
-        for (i=0; i<data.length-2; i++) {
+        for (i=0; i<data.length-1; i++) {
             Pri.nt(data);
-            for (j=0; j<data.length-2-i; j++) {
+            for (j=0; j<data.length-1-i; j++) {
                 if (data[j]>data[j+1]) {
                     tmp = data[j+1];
                     data[j+1] = data[j];

@@ -4,6 +4,7 @@
  */
 package algorithmsanddatastructures;
 import algorithmsanddatastructures.sortalgorithms.BubbleSort;
+import algorithmsanddatastructures.sortalgorithms.SelectionSort;
 import algorithmsanddatastructures.sortalgorithms.SortingAlgo;
 import algorithmsanddatastructures.sortalgorithms.TestCaseProvider;
 
@@ -14,6 +15,7 @@ public class MainRunner {
 
     public static void main(String[] args) {
         RunTheSortingTest(new BubbleSort());
+        RunTheSortingTest(new SelectionSort());
     }
 
     private static void RunTheSortingTest(SortingAlgo chosenAlgo) {
