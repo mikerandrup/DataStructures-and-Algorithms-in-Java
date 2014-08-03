@@ -3,6 +3,8 @@
  See LICENSE file for license details.
  */
 package algorithmsanddatastructures;
+import ListStructures.List;
+import ListStructures.ListImplementationLinked;
 import algorithmsanddatastructures.sortalgorithms.BubbleSort;
 import algorithmsanddatastructures.sortalgorithms.InsertionSort;
 import algorithmsanddatastructures.sortalgorithms.SelectionSort;
@@ -18,6 +20,8 @@ public class MainRunner {
         RunTheSortingTest(new BubbleSort());
         RunTheSortingTest(new SelectionSort());
         RunTheSortingTest(new InsertionSort());
+        
+        RunTheLinkedListTest();
     }
 
     private static void RunTheSortingTest(SortingAlgo chosenAlgo) {
@@ -49,5 +53,17 @@ public class MainRunner {
             }
             return true;
         }
+    }
+
+    private static void RunTheLinkedListTest() {
+        List myList = new ListImplementationLinked();
+        
+        myList.InsertAtHead(1);
+        myList.InsertAtTail(2);
+        myList.InsertAtTail(3);
+        myList.InsertAtTail(4);
+        myList.InsertAtTail(5);
+        
+        Pri.nt(myList.toString());
     }
 }
