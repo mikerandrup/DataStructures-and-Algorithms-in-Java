@@ -17,14 +17,14 @@ import algorithmsanddatastructures.sortalgorithms.TestCaseProvider;
 public class MainRunner {
 
     public static void main(String[] args) {
-        RunTheSortingTest(new BubbleSort());
-        RunTheSortingTest(new SelectionSort());
-        RunTheSortingTest(new InsertionSort());
+        RunTheSortingTests(new BubbleSort());
+        RunTheSortingTests(new SelectionSort());
+        RunTheSortingTests(new InsertionSort());
         
-        RunTheLinkedListTest();
+        RunTheLinkedListTests();
     }
 
-    private static void RunTheSortingTest(SortingAlgo chosenAlgo) {
+    private static void RunTheSortingTests(SortingAlgo chosenAlgo) {
         
         int[] valueArray = TestCaseProvider.GetUnsortedExample();
         chosenAlgo.SortTheData(valueArray);
@@ -38,7 +38,7 @@ public class MainRunner {
             Pri.nt("Error in Algoritm.  Data not sorted correctly.");
         }
         
-        Pri.nt("-------------------");
+        Pri.ntSpacer();
     }
     
     private static Boolean DeepEquals(int[] a, int[] b) {
@@ -55,15 +55,42 @@ public class MainRunner {
         }
     }
 
-    private static void RunTheLinkedListTest() {
+    private static void RunTheLinkedListTests() {
         List myList = new ListImplementationLinked();
         
-        myList.InsertAtHead(1);
-        myList.InsertAtTail(2);
-        myList.InsertAtTail(3);
+        Pri.nt("Insert some data");
         myList.InsertAtTail(4);
         myList.InsertAtTail(5);
-        
+        myList.InsertAtTail(6);
+        myList.InsertAtTail(7);
+        myList.InsertAtTail(8);
+        myList.InsertAtTail(9);
+        myList.InsertAtTail(10);
+        myList.InsertAtHead(3);
+        myList.InsertAtHead(2);
+        myList.InsertAtHead(1);
         Pri.nt(myList.toString());
+        Pri.ntSpacer();
+        
+        
+        Pri.nt("Delete the even numbers");
+        myList.DeleteNodeAtIndex(1);
+        myList.DeleteNodeAtIndex(2);
+        myList.DeleteNodeAtIndex(3);
+        myList.DeleteNodeAtIndex(4);
+        myList.DeleteNodeAtIndex(5);
+        myList.DeleteNodeAtIndex(6);
+        Pri.nt(myList);
+        Pri.ntSpacer();
+        
+        // Whoops!  This isn't working yet.
+        Pri.nt("Move last 3 nodes to head");
+        myList.MoveLastNNodesToHead(3);
+        Pri.nt(myList);
+        Pri.ntSpacer();
+        
+        Pri.nt("Reverse the list");
+        myList.Reverse();
+        Pri.nt(myList);
     }
 }

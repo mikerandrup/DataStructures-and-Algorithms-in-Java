@@ -15,11 +15,19 @@ public class Pri {
         System.out.println(LinePrefix + message);
     }
     
+    public static void nt(Object obj) {
+        nt(obj.toString());
+    }
+    
     public static void nt(int[] intArray) {
         String output = "";
         for (int i=0; i<intArray.length; i++) {
             output += (intArray[i]) + ((i!=intArray.length-1) ? ", " : "");
         }
         Pri.nt(output);
+    }
+    
+    public static void ntSpacer() {
+        Pri.nt("\n-----------------------\n");
     }
 }

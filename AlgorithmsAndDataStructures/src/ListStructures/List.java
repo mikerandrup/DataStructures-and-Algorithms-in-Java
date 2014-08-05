@@ -11,5 +11,9 @@ package ListStructures;
 public interface List {
     void InsertAtHead(Object item);
     void InsertAtTail(Object item);
+    Object GetNodeAtIndex(int index);
+    void DeleteNodeAtIndex(int index);
+    void MoveLastNNodesToHead(int count);
+    void Reverse();
     int GetLength();
 }

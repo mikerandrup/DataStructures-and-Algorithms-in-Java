@@ -16,13 +16,13 @@ public class ListImplementationLinked implements List {
 
     @Override
     public void InsertAtHead(Object item) {
-        if (head == null) {
-            head = new Node(item);
+        if (Head == null) {
+            Head = new Node(item);
         }
         else {
-            Node oldHead = head;
-            head = new Node(item);
-            head.Next = oldHead;
+            Node oldHead = Head;
+            Head = new Node(item);
+            Head.Next = oldHead;
         }
         
         _length++;
@@ -31,11 +31,11 @@ public class ListImplementationLinked implements List {
     @Override
     public void InsertAtTail(Object item) {
         
-        if (head == null) {
-            head = new Node(item);
+        if (Head == null) {
+            Head = new Node(item);
         }
         else {
-           Node currentNode = head;
+           Node currentNode = Head;
            while (currentNode.Next != null) {
                currentNode = currentNode.Next;
            }
@@ -50,14 +50,14 @@ public class ListImplementationLinked implements List {
         return _length;
     }
     
-    public Node head;
+    public Node Head;
     private int _length;
     
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         
-        Node currentNode = head;
+        Node currentNode = Head;
         while (currentNode != null) {
             sb.append(String.format("[%s], ", currentNode.toString()));
             currentNode = currentNode.Next;
@@ -67,6 +67,67 @@ public class ListImplementationLinked implements List {
         
         return sb.toString();
     }
+
+    @Override
+    public Node GetNodeAtIndex(int targetIndex) {
+        
+        Node curNode = Head;
+        int curIndex = 0;
+        while (curNode!=null) {
+            if (targetIndex == curIndex) {
+                return curNode;
+            }
+            curIndex++;
+            curNode = curNode.Next;
+        }
+        
+        return null;
+    }
+
+    @Override
+    public void DeleteNodeAtIndex(int targetIndex) {
+                
+        if (targetIndex < 1) {
+            if (Head != null) {
+                Head = Head.Next;
+                _length--;
+            }
+        }
+        else {
+            Node priorNode = GetNodeAtIndex(targetIndex-1);
+            if (priorNode != null) {
+                Node targetNode = priorNode.Next;
+                if (targetNode != null) {
+                    Node nextNode = targetNode.Next; 
+                    priorNode.Next = nextNode;
+                    _length--;
+                }
+            }
+        }       
+    }
+
+    @Override
+    public void MoveLastNNodesToHead(int count) {
+        if (count < _length) {
+            Node oldHead = Head;
+            Node oldTail = GetNodeAtIndex(_length-1);
+
+            Node newHead = GetNodeAtIndex(_length-count-1);
+
+            // null check seems awkward 
+            Node newTail = GetNodeAtIndex(_length-count-2);
+            Head = newHead;
+            if (newTail != null) {
+                newTail.Next = null;
+            }
+            oldTail.Next = oldHead;
+        }
+    }
+
+    @Override
+    public void Reverse() {
+        
+    }
     
     public static class Node {
         public Node(Object data) {
@@ -74,8 +135,9 @@ public class ListImplementationLinked implements List {
         }
         public Object Data;
         public Node Next;
+        @Override
         public String toString() {
-            return Data!=null ? Data.toString() : "NoData";
+            return Data != null ? Data.toString() : "NoData";
         }
     }
     
